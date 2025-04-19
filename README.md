@@ -1,7 +1,5 @@
 # Ryan Elico's Portfolio with AI Assistant
 
-![thumbnail](./public/thumbnail.png)
-
 ## Description
 
 This portfolio showcases Ryan Elico's professional work and projects, enhanced with an interactive AI Assistant feature. Built with modern web technologies, it provides visitors with an elegant user experience while the integrated AI Assistant helps navigate the portfolio and answer questions about Ryan's experience, skills, and projects.
