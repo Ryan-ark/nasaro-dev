@@ -62,9 +62,9 @@ const Navbar = (props: Props) => {
       <div
         className={cn(`flex items-center px-5 max-lg:py-4 lg:px-7.5 xl:px-10`)}
       >
-        <Link href="#hero" className={cn(`w-48 xl:mr-8 flex items-center gap-2`)}>
+        <Link href="#hero" className={cn(`w-auto max-w-[40%] sm:max-w-[48%] md:w-48 xl:mr-8 flex items-center gap-2`)}>
           <Image src={starForgeSymbol} alt="nasaro.dev" width={40} height={40} />
-          <p className="text-2xl font-grotesk font-extrabold tracking-wide">nasaro.dev</p>
+          <p className="text-lg sm:text-xl md:text-2xl font-grotesk font-extrabold tracking-wide">nasaro.dev</p>
         </Link>
 
         <nav
@@ -98,7 +98,7 @@ const Navbar = (props: Props) => {
           <HamburgerMenu />
         </nav>
 
-        <Button className="ml-auto" href="/assets/resume.pdf" target="_blank" rel="noopener noreferrer">
+        <Button className="ml-auto text-sm sm:text-base" href="/assets/resume.pdf" target="_blank" rel="noopener noreferrer">
           Resume
         </Button>
 
