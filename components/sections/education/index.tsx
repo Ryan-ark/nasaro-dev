@@ -7,17 +7,17 @@ import Image from "next/image"
 
 const educationData = [
   {
-    degree: "Bachelor of Science in Computer Science",
-    institution: "University of Technology",
-    period: "2012 - 2016",
-    description: "Specialized in Software Engineering with focus on web and mobile development. Graduated with honors.",
+    degree: "Bachelor of Science in Information Technology",
+    institution: "STI COLLEGE SURIGAO",
+    period: "2021 - 2025",
+    description: "Currently pursuing a Bachelor's degree in Information Technology with recognition as a Dean Lister.",
     logoUrl: "/assets/education/university.svg"
   },
   {
-    degree: "Advanced Diploma in Web Development",
-    institution: "Digital Academy",
-    period: "2011 - 2012",
-    description: "Intensive program covering front-end and back-end technologies, responsive design, and modern frameworks.",
+    degree: "Information and Communication Technology",
+    institution: "STI COLLEGE SURIGAO",
+    period: "2019 - 2021",
+    description: "Completed with High Honors, focusing on fundamentals of information and communication technology.",
     logoUrl: "/assets/education/academy.svg"
   }
 ]

@@ -4,6 +4,51 @@ import React, { useState } from "react"
 import Section from "../../layout/section"
 import { cn } from "@/lib/utils"
 import Button from "../../atoms/button"
+import Link from "next/link"
+import { FiMail, FiPhone, FiMapPin, FiLinkedin, FiGithub } from "react-icons/fi"
+import { FaFacebookF } from "react-icons/fa"
+
+const contactInfo = [
+  {
+    icon: <FiPhone className="size-5" />,
+    label: "Phone",
+    value: "+639976901820",
+    href: "tel:+639976901820"
+  },
+  {
+    icon: <FiMail className="size-5" />,
+    label: "Email",
+    value: "ryanelicwork@gmail.com",
+    href: "mailto:ryanelicwork@gmail.com"
+  },
+  {
+    icon: <FiMapPin className="size-5" />,
+    label: "Location",
+    value: "Bacuag, Surigao del Norte",
+    href: "https://maps.google.com/?q=Bacuag,+Surigao+del+Norte,+Philippines"
+  }
+]
+
+const socialLinks = [
+  {
+    icon: <FiLinkedin className="size-5" />,
+    label: "LinkedIn",
+    value: "linkedin.com/in/ryanelico",
+    href: "https://www.linkedin.com/in/ryanelico/"
+  },
+  {
+    icon: <FiGithub className="size-5" />,
+    label: "GitHub",
+    value: "github.com/Ryan-ark",
+    href: "https://github.com/Ryan-ark"
+  },
+  {
+    icon: <FaFacebookF className="size-5" />,
+    label: "Facebook",
+    value: "facebook.com/nasaroryan",
+    href: "https://www.facebook.com/nasaroryan"
+  }
+]
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -49,66 +94,115 @@ const Contact = () => {
             Have a question or want to work together? Feel free to reach out!
           </p>
           
-          <div className="mx-auto max-w-[38rem] rounded-2xl border border-n-6 bg-n-8 p-8 md:p-10">
-            <form onSubmit={handleSubmit}>
-              <div className="mb-6">
-                <label htmlFor="name" className="mb-2 block text-sm text-n-3">
-                  Your Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="w-full rounded-lg border border-n-6 bg-n-7 px-4 py-3 text-n-1 outline-none transition-colors focus:border-n-5"
-                  placeholder="John Doe"
-                />
-              </div>
+          <div className="grid gap-10 lg:grid-cols-2">
+            <div className="rounded-2xl border border-n-6 bg-n-8 p-8 md:p-10">
+              <h3 className="h4 mb-6 text-n-1">Contact Information</h3>
               
-              <div className="mb-6">
-                <label htmlFor="email" className="mb-2 block text-sm text-n-3">
-                  Your Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full rounded-lg border border-n-6 bg-n-7 px-4 py-3 text-n-1 outline-none transition-colors focus:border-n-5"
-                  placeholder="john@example.com"
-                />
+              <div className="flex flex-col gap-6">
+                {contactInfo.map((contact, index) => (
+                  <div key={index} className="flex items-center gap-4">
+                    <div className="flex size-10 items-center justify-center rounded-full bg-n-6">
+                      {contact.icon}
+                    </div>
+                    <div>
+                      <h4 className="text-sm font-medium text-n-3">{contact.label}</h4>
+                      <Link
+                        href={contact.href}
+                        className="text-base text-n-1 transition-colors hover:text-color-1"
+                        target={contact.label === "Location" ? "_blank" : undefined}
+                        rel={contact.label === "Location" ? "noopener noreferrer" : undefined}
+                      >
+                        {contact.value}
+                      </Link>
+                    </div>
+                  </div>
+                ))}
+
+                <h3 className="h4 mb-2 mt-4 text-n-1">Social Media</h3>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  {socialLinks.map((social, index) => (
+                    <div key={index} className="flex items-center gap-3">
+                      <div className="flex size-10 items-center justify-center rounded-full bg-n-6">
+                        {social.icon}
+                      </div>
+                      <div>
+                        <h4 className="text-sm font-medium text-n-3">{social.label}</h4>
+                        <Link
+                          href={social.href}
+                          className="text-base text-n-1 transition-colors hover:text-color-1"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {social.value}
+                        </Link>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
-              
-              <div className="mb-8">
-                <label htmlFor="message" className="mb-2 block text-sm text-n-3">
-                  Your Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  className="w-full rounded-lg border border-n-6 bg-n-7 px-4 py-3 text-n-1 outline-none transition-colors focus:border-n-5"
-                  placeholder="Hello, I'd like to talk about..."
-                  rows={5}
-                />
-              </div>
-              
-              <div className="text-center">
-                <Button type="submit" className="min-w-[10rem]" disabled={isSubmitting}>
-                  {isSubmitting ? "Sending..." : "Send Message"}
-                </Button>
+            </div>
+            
+            <div className="rounded-2xl border border-n-6 bg-n-8 p-8 md:p-10">
+              <form onSubmit={handleSubmit}>
+                <div className="mb-6">
+                  <label htmlFor="name" className="mb-2 block text-sm text-n-3">
+                    Your Name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                    className="w-full rounded-lg border border-n-6 bg-n-7 px-4 py-3 text-n-1 outline-none transition-colors focus:border-n-5"
+                    placeholder="John Doe"
+                  />
+                </div>
                 
-                {submitMessage && (
-                  <p className="mt-4 text-center text-color-1">{submitMessage}</p>
-                )}
-              </div>
-            </form>
+                <div className="mb-6">
+                  <label htmlFor="email" className="mb-2 block text-sm text-n-3">
+                    Your Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    className="w-full rounded-lg border border-n-6 bg-n-7 px-4 py-3 text-n-1 outline-none transition-colors focus:border-n-5"
+                    placeholder="john@example.com"
+                  />
+                </div>
+                
+                <div className="mb-8">
+                  <label htmlFor="message" className="mb-2 block text-sm text-n-3">
+                    Your Message
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
+                    className="w-full rounded-lg border border-n-6 bg-n-7 px-4 py-3 text-n-1 outline-none transition-colors focus:border-n-5"
+                    placeholder="Hello, I'd like to talk about..."
+                    rows={5}
+                  />
+                </div>
+                
+                <div className="text-center">
+                  <Button type="submit" className="min-w-[10rem]" disabled={isSubmitting}>
+                    {isSubmitting ? "Sending..." : "Send Message"}
+                  </Button>
+                  
+                  {submitMessage && (
+                    <p className="mt-4 text-center text-color-1">{submitMessage}</p>
+                  )}
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>

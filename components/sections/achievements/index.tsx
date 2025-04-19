@@ -188,12 +188,12 @@ const Achievements = () => {
       <div className="container">
         <div className="relative z-1">
           <ScrollReveal>
-            <h2 className="h2 mb-6 text-center">Portfolio Achievements</h2>
+            <h2 className="h2 mb-6 text-center">Achievements</h2>
           </ScrollReveal>
           
           <ScrollReveal delay={0.1}>
             <p className="body-1 mb-12 text-center text-n-3">
-              Explore the site to unlock achievements and track your progress
+              Recognition and accomplishments in my development journey
             </p>
           </ScrollReveal>
           

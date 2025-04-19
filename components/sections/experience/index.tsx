@@ -6,47 +6,33 @@ import { cn } from "@/lib/utils"
 
 const experienceData = [
   {
-    title: "Senior Full Stack Developer",
-    company: "TechSphere Solutions",
-    period: "2021 - Present",
+    title: "Junior Software Developer",
+    company: "Arkdesign B.V.",
+    period: "2024 - PRESENT",
     responsibilities: [
-      "Lead development of client projects using Next.js, React, and TypeScript, resulting in 30% faster load times",
-      "Architected and implemented RESTful APIs with Laravel for enterprise clients, handling 500k+ daily requests",
-      "Mentored junior developers in modern web development practices and code review processes",
-      "Implemented CI/CD pipelines that reduced deployment time by 40% and improved code quality"
-    ]
-  },
-  {
-    title: "Mobile App Developer",
-    company: "InnovateMobile",
-    period: "2019 - 2021",
-    responsibilities: [
-      "Developed and deployed cross-platform mobile applications using React Native and Expo.dev",
-      "Created native Android applications using Kotlin and Android Studio for clients with specific platform requirements",
-      "Implemented push notification systems, offline-first functionality, and secure authentication flows",
-      "Optimized app performance leading to 45% reduction in load times and improved user engagement metrics"
-    ]
-  },
-  {
-    title: "WordPress & CMS Specialist",
-    company: "Digital Craft Agency",
-    period: "2017 - 2019",
-    responsibilities: [
-      "Designed and developed custom WordPress themes and plugins for e-commerce and corporate clients",
-      "Built WooCommerce online stores with custom product types, payment gateways, and shipping integrations",
-      "Implemented advanced Elementor customizations and created reusable component libraries",
-      "Optimized WordPress sites for performance and SEO, resulting in 35% increase in organic traffic"
+      "Develop and maintain software applications to meet company requirements",
+      "Collaborate with cross-functional teams to design, test, and deploy new features",
+      "Troubleshoot and debug issues to improve application performance and reliability"
     ]
   },
   {
     title: "Web Developer",
-    company: "CreativeTech Studio",
-    period: "2015 - 2017",
+    company: "Arkdesign B.V.",
+    period: "2023 - 2024",
     responsibilities: [
-      "Developed responsive websites and web applications using modern JavaScript frameworks",
-      "Built custom themes and plugins for content management systems including WordPress and Drupal",
-      "Collaborated with design team to implement pixel-perfect UI/UX from mockups",
-      "Maintained and optimized existing client websites across various hosting environments"
+      "Designed, developed, and maintained responsive websites and web applications",
+      "Optimized website performance and implemented best practices for user experience",
+      "Collaborated with designers and backend developers to ensure seamless functionality"
+    ]
+  },
+  {
+    title: "Computer Laboratory Assistant",
+    company: "STI College Surigao",
+    period: "2022 - 2023",
+    responsibilities: [
+      "Assisted students and faculty with technical support in the computer laboratory",
+      "Maintained and troubleshot computer hardware, software, and network issues",
+      "Provided technical assistance and guidance to students during practical sessions"
     ]
   }
 ]
@@ -58,7 +44,7 @@ const Experience = () => {
         <div className="relative z-1">
           <h2 className="h2 mb-6 text-center">Work Experience</h2>
           <p className="body-1 mb-12 text-center text-n-3">
-            My professional journey across web, mobile, and CMS development
+            My professional journey in software and web development
           </p>
           
           <div className="mx-auto max-w-4xl">

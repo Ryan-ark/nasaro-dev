@@ -113,7 +113,7 @@ const Hero = (props: Props) => {
           </motion.div>
           
           <div className="mb-6 text-n-2 lg:mb-8">
-            <AnimatedText text="Software Engineer specializing in building exceptional digital experiences. I focus on creating accessible, user-friendly applications that solve real-world problems." />
+            <AnimatedText text="Junior Software Developer and Web Developer specializing in WordPress development, responsive design, and user-friendly web solutions. I focus on creating scalable, accessible applications that deliver seamless user experiences." />
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-md mx-auto">
@@ -178,7 +178,7 @@ const Hero = (props: Props) => {
                       width={1024}
                       height={490}
                       className="w-full object-cover"
-                      alt="Ryan Elico - Software Engineer"
+                      alt="Ryan Elico - Junior Software Developer"
                     />
                   </motion.div>
                 </div>
@@ -223,16 +223,16 @@ const CompanyLogos = ({ className }: { className?: string }) => {
   return (
     <div className={cn("flex flex-wrap justify-center gap-4", className)}>
       <div className="flex items-center justify-center rounded-xl bg-n-7/50 px-6 py-3 backdrop-blur-sm">
-        <span className="text-sm font-medium text-n-1/80">Next.js</span>
+        <span className="text-sm font-medium text-n-1/80">WordPress</span>
       </div>
       <div className="flex items-center justify-center rounded-xl bg-n-7/50 px-6 py-3 backdrop-blur-sm">
         <span className="text-sm font-medium text-n-1/80">Laravel</span>
       </div>
       <div className="flex items-center justify-center rounded-xl bg-n-7/50 px-6 py-3 backdrop-blur-sm">
-        <span className="text-sm font-medium text-n-1/80">React Native</span>
+        <span className="text-sm font-medium text-n-1/80">React</span>
       </div>
       <div className="flex items-center justify-center rounded-xl bg-n-7/50 px-6 py-3 backdrop-blur-sm">
-        <span className="text-sm font-medium text-n-1/80">WordPress</span>
+        <span className="text-sm font-medium text-n-1/80">Vue.js</span>
       </div>
     </div>
   )

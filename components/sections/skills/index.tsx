@@ -8,24 +8,19 @@ import { motion } from "framer-motion"
 
 const skillsData = [
   {
-    category: "Web Development",
-    icon: "🌐",
-    skills: ["Next.js", "React", "TypeScript", "JavaScript", "HTML5", "CSS3", "TailwindCSS", "Redux", "Laravel", "PHP", "MySQL"]
+    category: "Software Development",
+    icon: "💻",
+    skills: ["Software Development", "Custom WordPress", "Back-End Development", "E-commerce Integration", "Leadership", "Effective Communication", "Critical Thinking"]
   },
   {
-    category: "Mobile Development",
-    icon: "📱",
-    skills: ["React Native", "Expo.dev", "Android Studio", "Java", "Kotlin", "Mobile UI/UX", "Push Notifications", "App Store Deployment"]
-  },
-  {
-    category: "CMS Development",
-    icon: "🔌",
-    skills: ["WordPress", "Elementor", "WooCommerce", "Custom Themes", "Custom Plugins", "ACF", "Gutenberg", "E-commerce"]
-  },
-  {
-    category: "Tools & Others",
+    category: "Technical Skills",
     icon: "🛠️",
-    skills: ["Git", "GitHub", "Docker", "AWS", "CI/CD", "Figma", "Adobe XD", "RESTful APIs", "GraphQL", "Firebase"]
+    skills: ["WordPress", "PHP", "JavaScript", "HTML", "CSS", "Laravel", "Vue.js", "React", "Blade", "MySQL"]
+  },
+  {
+    category: "Languages",
+    icon: "🗣️",
+    skills: ["English (Intermediate)", "Tagalog (Intermediate)", "Cebuano (Fluent)"]
   }
 ]
 
@@ -110,7 +105,7 @@ const Skills = () => {
               </div>
               <h2 className="h2 mb-6 bg-gradient-to-r from-color-1 via-color-5 to-color-2 bg-clip-text text-transparent">Skills & Technologies</h2>
               <p className="body-1 text-n-3 mx-auto max-w-2xl">
-                My technical expertise across various development domains
+                My technical expertise and professional capabilities
               </p>
             </div>
           </ScrollReveal>

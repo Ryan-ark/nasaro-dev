@@ -22,11 +22,11 @@ export const PortfolioProvider = ({ children }: { children: ReactNode }) => {
   const [interactionsCount, setInteractionsCount] = useState(0)
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 })
   const [achievements, setAchievements] = useState([
-    { id: "visit_all", title: "Explorer", description: "Visit all sections", unlocked: false },
-    { id: "interact_10", title: "Curious Mind", description: "Interact 10+ times", unlocked: false },
-    { id: "scroll_deep", title: "Deep Diver", description: "Scroll to the bottom", unlocked: false },
-    { id: "stay_1min", title: "Interested", description: "Stay for 1+ minute", unlocked: false },
-    { id: "easter_egg", title: "Detective", description: "Find the easter egg", unlocked: false },
+    { id: "codefest", title: "Codefest Champion", description: "3-Time Champion in Codefest at STI College Surigao", unlocked: true },
+    { id: "edp_specialist", title: "EDP Specialist", description: "Achieved 95.57% rating in DICT Electronic Data Processing Specialist Eligibility Examination", unlocked: true },
+    { id: "visit_all", title: "Explorer", description: "Visit all sections of this portfolio", unlocked: false },
+    { id: "interact_10", title: "Curious Mind", description: "Interact 10+ times with the portfolio", unlocked: false },
+    { id: "easter_egg", title: "Detective", description: "Find the hidden easter egg", unlocked: false },
   ])
 
   // Memoize functions to prevent recreation on every render
@@ -75,7 +75,6 @@ export const PortfolioProvider = ({ children }: { children: ReactNode }) => {
   // Track scroll position and calculate progress with throttling
   useEffect(() => {
     let throttleTimeout: NodeJS.Timeout | null = null;
-    const scrollDeep = achievements.find(a => a.id === "scroll_deep")
     
     const handleScroll = () => {
       if (!throttleTimeout) {
@@ -86,11 +85,6 @@ export const PortfolioProvider = ({ children }: { children: ReactNode }) => {
           const scrollPercent = scrollTop / (docHeight - winHeight)
           setProgress(Math.min(scrollPercent * 100, 100))
           
-          // Check for "scroll_deep" achievement - only if not already unlocked
-          if (scrollPercent > 0.9 && scrollDeep && !scrollDeep.unlocked) {
-            unlockAchievement("scroll_deep")
-          }
-          
           throttleTimeout = null
         }, 100)
       }
@@ -100,18 +94,6 @@ export const PortfolioProvider = ({ children }: { children: ReactNode }) => {
     return () => {
       window.removeEventListener("scroll", handleScroll)
       if (throttleTimeout) clearTimeout(throttleTimeout)
-    }
-  }, [achievements, unlockAchievement])
-
-  // Timer for "stay_1min" achievement
-  useEffect(() => {
-    const stayAchievement = achievements.find(a => a.id === "stay_1min")
-    if (stayAchievement && !stayAchievement.unlocked) {
-      const timer = setTimeout(() => {
-        unlockAchievement("stay_1min")
-      }, 60000) // 1 minute
-      
-      return () => clearTimeout(timer)
     }
   }, [achievements, unlockAchievement])
 
