@@ -118,25 +118,23 @@ const Contact = () => {
                   </div>
                 ))}
 
-                <h3 className="h4 mb-2 mt-4 text-n-1">Social Media</h3>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <h3 className="h4 mb-4 mt-6 text-n-1">Social Media</h3>
+                
+                {/* Social Media Links - Better Layout */}
+                <div className="flex flex-wrap items-center gap-4 border border-n-6 rounded-xl p-4 bg-n-7/30">
                   {socialLinks.map((social, index) => (
-                    <div key={index} className="flex items-center gap-3">
-                      <div className="flex size-10 items-center justify-center rounded-full bg-n-6">
+                    <Link
+                      key={index}
+                      href={social.href}
+                      className="flex items-center gap-3 py-2 px-4 rounded-lg bg-n-6 hover:bg-n-5 transition-colors"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <div className="flex size-8 items-center justify-center rounded-full bg-n-5/50">
                         {social.icon}
                       </div>
-                      <div>
-                        <h4 className="text-sm font-medium text-n-3">{social.label}</h4>
-                        <Link
-                          href={social.href}
-                          className="text-base text-n-1 transition-colors hover:text-color-1"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          {social.value}
-                        </Link>
-                      </div>
-                    </div>
+                      <span className="text-sm font-medium text-n-1">{social.label}</span>
+                    </Link>
                   ))}
                 </div>
               </div>

@@ -98,7 +98,7 @@ const Navbar = (props: Props) => {
           <HamburgerMenu />
         </nav>
 
-        <Button className="ml-auto" href="#resume">
+        <Button className="ml-auto" href="/assets/resume.pdf" target="_blank" rel="noopener noreferrer">
           Resume
         </Button>
 

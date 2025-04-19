@@ -8,44 +8,52 @@ import TiltCard from "../../effects/tilt-card"
 import { motion } from "framer-motion"
 import Image from "next/image"
 import ImageWithFallback from "../../ui/image-with-fallback"
+import { FiCode, FiLayers, FiActivity, FiBarChart2 } from "react-icons/fi"
 
-// Project data
+// Projects in development
+const developmentMessage = {
+  title: "Projects Coming Soon",
+  description: "I'm currently working on several exciting projects that will be showcased here soon. My portfolio is under active development, and I'll be adding detailed case studies of my work in the near future.",
+  statusText: "In Development"
+}
+
+// Empty project placeholders with "In Development" status
 const projectsData = [
   {
     id: 1,
     title: "E-Commerce Platform",
-    description: "A full-featured e-commerce platform with product management, cart functionality, and payment processing.",
-    technologies: ["Next.js", "TypeScript", "Stripe", "PostgreSQL"],
+    description: "A full-featured e-commerce platform with product management, cart functionality, and secure payment processing.",
+    technologies: ["Next.js", "TypeScript", "Laravel", "MySQL"],
     image: "/img/project1.png",
-    link: "https://example.com/project1",
-    github: "https://github.com/username/project1",
+    status: "In Development",
+    icon: <FiBarChart2 className="w-16 h-16" />
   },
   {
     id: 2,
-    title: "Task Management App",
-    description: "A collaborative task management application with real-time updates and team workspace features.",
-    technologies: ["React", "Redux", "Firebase", "Material UI"],
+    title: "Content Management System",
+    description: "Custom CMS solution with flexible content modeling, user management, and robust admin interface.",
+    technologies: ["React", "PHP", "WordPress", "TailwindCSS"],
     image: "/img/project2.png",
-    link: "https://example.com/project2",
-    github: "https://github.com/username/project2",
+    status: "In Development",
+    icon: <FiLayers className="w-16 h-16" />
   },
   {
     id: 3,
-    title: "Health & Fitness Tracker",
-    description: "Mobile application for tracking workouts, nutrition, and personal health metrics with visualization.",
-    technologies: ["React Native", "Expo", "Chart.js", "MongoDB"],
+    title: "Personal Blog Platform",
+    description: "Modern blogging platform with rich content editing, categories, and engagement features.",
+    technologies: ["Vue.js", "Laravel", "MySQL", "Blade"],
     image: "/img/project3.png",
-    link: "https://example.com/project3",
-    github: "https://github.com/username/project3",
+    status: "In Development",
+    icon: <FiCode className="w-16 h-16" />
   },
   {
     id: 4,
-    title: "Social Media Dashboard",
-    description: "Administrative dashboard for managing social media accounts, scheduling posts, and analyzing engagement.",
-    technologies: ["Vue.js", "Node.js", "Express", "Social APIs"],
+    title: "Portfolio Website",
+    description: "Professional portfolio website with interactive elements, project showcase, and contact functionality.",
+    technologies: ["Next.js", "React", "TailwindCSS", "Framer Motion"],
     image: "/img/project4.png",
-    link: "https://example.com/project4",
-    github: "https://github.com/username/project4",
+    status: "In Development",
+    icon: <FiActivity className="w-16 h-16" />
   },
 ]
 
@@ -64,41 +72,24 @@ const ProjectCard = ({
         perspective={1500}
       >
         <div className="relative h-full flex flex-col">
-          {/* Project Image */}
-          <div className="relative h-48 overflow-hidden">
-            <ImageWithFallback
-              src={project.image}
-              alt={project.title}
-              fill
-              className="object-cover transition-all duration-700 group-hover:scale-105"
-              fallbackClassName="p-8 flex items-center justify-center"
-            />
+          {/* Project Image or Placeholder */}
+          <div className="relative h-48 overflow-hidden bg-gradient-to-r from-purple-900/30 to-blue-900/30 flex items-center justify-center">
+            <div className="text-color-1/80">
+              {project.icon}
+            </div>
             
-            {/* Overlay with links */}
-            <div className="absolute inset-0 bg-gradient-to-t from-n-8/90 to-n-8/0 p-4 flex items-end justify-between opacity-0 hover:opacity-100 transition-opacity duration-300">
-              <a 
-                href={project.link} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="px-3 py-1.5 rounded-full bg-n-1/10 backdrop-blur-sm text-xs font-medium text-n-1 hover:bg-n-1/20 transition-colors"
-              >
-                Live Demo
-              </a>
-              <a 
-                href={project.github} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="px-3 py-1.5 rounded-full bg-n-1/10 backdrop-blur-sm text-xs font-medium text-n-1 hover:bg-n-1/20 transition-colors"
-              >
-                GitHub
-              </a>
+            {/* Development Status Badge */}
+            <div className="absolute top-4 right-4">
+              <span className="px-3 py-1 rounded-full bg-color-1/20 backdrop-blur-sm text-xs font-medium text-white">
+                {project.status}
+              </span>
             </div>
           </div>
           
           {/* Project Details */}
-          <div className="p-6 flex flex-col flex-grow">
+          <div className="p-6 flex flex-col flex-grow text-center">
             <motion.h3 
-              className="text-xl font-bold mb-2"
+              className="text-xl font-bold mb-2 text-center"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 + index * 0.1 }}
@@ -106,7 +97,7 @@ const ProjectCard = ({
               {project.title}
             </motion.h3>
             <motion.p 
-              className="text-n-3 mb-4 text-sm flex-grow"
+              className="text-n-3 mb-4 text-sm flex-grow text-center"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 + index * 0.1 }}
@@ -115,7 +106,7 @@ const ProjectCard = ({
             </motion.p>
             
             {/* Technologies */}
-            <div className="flex flex-wrap gap-2 mt-auto">
+            <div className="flex flex-wrap gap-2 mt-auto justify-center">
               {project.technologies.map((tech, techIndex) => (
                 <motion.span
                   key={techIndex}
@@ -139,19 +130,24 @@ const ProjectCard = ({
 const Projects = () => {
   return (
     <Section id="projects" crosses backgroundEffect>
-      <div className="container">
-        <div className="relative z-1">
+      <div className="container flex flex-col items-center justify-center">
+        <div className="relative z-1 w-full flex flex-col items-center">
           <ScrollReveal>
-            <h2 className="h2 mb-6 text-center">Featured Projects</h2>
+            <h2 className="h2 mb-6 text-center">Projects</h2>
           </ScrollReveal>
           
           <ScrollReveal delay={0.1}>
-            <p className="body-1 mb-12 text-center text-n-3">
-              Explore some of my recent work and personal projects
-            </p>
+            <div className="body-1 mb-12 text-center mx-auto max-w-3xl px-4 py-8">
+              <p className="text-n-3 mb-6 text-center mx-auto max-w-2xl">
+                {developmentMessage.description}
+              </p>
+              <div className="inline-block px-6 py-3 rounded-full bg-color-1/20 text-sm font-medium text-white">
+                {developmentMessage.statusText}
+              </div>
+            </div>
           </ScrollReveal>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
             {projectsData.map((project, index) => (
               <ProjectCard key={project.id} project={project} index={index} />
             ))}

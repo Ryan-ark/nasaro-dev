@@ -2,9 +2,17 @@ import React from "react";
 import Section from "./section";
 import { socials } from "@/constants";
 import Link from "next/link";
-import Image from "next/image";
+import { FiGithub, FiLinkedin, FiTwitter, FiMail } from "react-icons/fi";
 
 type Props = {};
+
+// Map of social media titles to their corresponding icons
+const socialIcons: Record<string, JSX.Element> = {
+  GitHub: <FiGithub className="size-5" />,
+  LinkedIn: <FiLinkedin className="size-5" />,
+  Twitter: <FiTwitter className="size-5" />,
+  Email: <FiMail className="size-5" />
+};
 
 const Footer = (props: Props) => {
   return (
@@ -20,8 +28,9 @@ const Footer = (props: Props) => {
               href={item.url}
               target="_blank"
               className="flex size-10 items-center justify-center rounded-full bg-n-7 transition-colors hover:bg-n-6"
+              title={item.title}
             >
-              <Image src={item.iconUrl} width={16} height={16} alt={item.title} />
+              {socialIcons[item.title] || <FiMail className="size-5" />}
             </Link>
           ))}
         </ul>
