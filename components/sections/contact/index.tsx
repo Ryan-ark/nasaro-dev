@@ -18,8 +18,8 @@ const contactInfo = [
   {
     icon: <FiMail className="size-5" />,
     label: "Email",
-    value: "ryanelicwork@gmail.com",
-    href: "mailto:ryanelicwork@gmail.com"
+    value: "ryanelicowork@gmail.com",
+    href: "mailto:ryanelicowork@gmail.com"
   },
   {
     icon: <FiMapPin className="size-5" />,
