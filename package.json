@@ -1,0 +1,38 @@
+{
+  "name": "nasaro-dev",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "ts:check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "critters": "^0.0.25",
+    "eslint-config-prettier": "^10.0.2",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-tailwindcss": "^3.18.0",
+    "framer-motion": "^12.7.4",
+    "next": "^15.3.1",
+    "prettier": "^3.5.2",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-just-parallax": "^3.1.16",
+    "tailwind-merge": "^3.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.6",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "autoprefixer": "^10.0.1",
+    "eslint": "^8.57.1",
+    "eslint-config-next": "15.2.0",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.8.2"
+  }
+}
