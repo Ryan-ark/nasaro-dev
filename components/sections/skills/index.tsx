@@ -83,7 +83,7 @@ const SkillCard = ({ category, skills, index, icon }: {
           </h3>
         </motion.div>
         
-        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-3">
+        <div className="grid grid-cols-2 gap-3">
           {skills.map((skill, skillIndex) => (
             <SkillItem key={skillIndex} skill={skill} index={skillIndex} />
           ))}
@@ -96,8 +96,8 @@ const SkillCard = ({ category, skills, index, icon }: {
 const Skills = () => {
   return (
     <Section id="skills" crosses backgroundEffect backgroundDirection="left">
-      <div className="container px-4 sm:px-6 lg:px-8 w-full mx-auto">
-        <div className="relative z-1">
+      <div className="container flex flex-col items-center justify-center">
+        <div className="relative z-1 w-full flex flex-col items-center">
           <ScrollReveal>
             <div className="mx-auto max-w-3xl text-center mb-10">
               <div className="inline-block rounded-full bg-n-6 px-4 py-1.5 mb-4">
@@ -110,17 +110,30 @@ const Skills = () => {
             </div>
           </ScrollReveal>
           
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-2 xl:gap-10">
-            {skillsData.map((category, index) => (
-              <SkillCard
-                key={index}
-                category={category.category}
-                skills={category.skills}
-                icon={category.icon}
-                index={index}
-              />
+          <div className="flex flex-col md:flex-row gap-8 max-w-4xl mx-auto w-full justify-center">
+            {skillsData.slice(0, 2).map((category, index) => (
+              <div key={index} className="flex-1 md:max-w-[400px] w-full">
+                <SkillCard
+                  category={category.category}
+                  skills={category.skills}
+                  icon={category.icon}
+                  index={index}
+                />
+              </div>
             ))}
           </div>
+          
+          {skillsData.length > 2 && (
+            <div className="mt-8 w-full max-w-[400px] mx-auto">
+              <SkillCard
+                key={2}
+                category={skillsData[2].category}
+                skills={skillsData[2].skills}
+                icon={skillsData[2].icon}
+                index={2}
+              />
+            </div>
+          )}
           
           <motion.div 
             className="absolute -bottom-20 -left-20 h-60 w-60 rounded-full bg-color-1/10 blur-3xl"
