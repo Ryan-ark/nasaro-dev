@@ -4,7 +4,6 @@ import React from "react";
 import { cn } from "@/lib/utils";
 import SectionSvg from "../svg/section-svg";
 import SectionTracker from "../effects/section-tracker";
-import ParallaxBackground from "../effects/parallax-background";
 
 type Props = {
   className?: string;
@@ -37,16 +36,6 @@ const Section = ({
         className
       )}
     >
-      {backgroundEffect && (
-        <ParallaxBackground 
-          direction={backgroundDirection} 
-          imageSrc="/img/grid.svg" 
-          opacity={0.2}
-          blur={2}
-          speed={0.3}
-        />
-      )}
-      
       {children}
 
       <div

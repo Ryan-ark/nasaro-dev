@@ -120,7 +120,7 @@ const ParallaxBackground = ({
         >
           <Image
             src={imageSrc}
-            alt="Parallax Background"
+            alt=""
             fill
             quality={90}
             className="object-cover"

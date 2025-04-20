@@ -119,69 +119,8 @@ const AchievementCard = ({
   )
 }
 
-const ProgressCircle = ({ progress }: { progress: number }) => {
-  const circumference = 2 * Math.PI * 45 // Radius 45
-  
-  return (
-    <div className="relative flex items-center justify-center">
-      <svg width="120" height="120" viewBox="0 0 120 120" className="transform -rotate-90">
-        {/* Background circle */}
-        <circle
-          cx="60"
-          cy="60"
-          r="45"
-          fill="none"
-          stroke="rgba(255, 255, 255, 0.1)"
-          strokeWidth="8"
-        />
-        
-        {/* Progress circle */}
-        <motion.circle
-          cx="60"
-          cy="60"
-          r="45"
-          fill="none"
-          stroke="url(#progressGradient)"
-          strokeWidth="8"
-          strokeDasharray={circumference}
-          initial={{ strokeDashoffset: circumference }}
-          animate={{ strokeDashoffset: circumference - (progress / 100) * circumference }}
-          transition={{ duration: 1, ease: "easeOut" }}
-        />
-        
-        {/* Gradient definition */}
-        <defs>
-          <linearGradient id="progressGradient" gradientTransform="rotate(90)">
-            <stop offset="0%" stopColor="#8B5CF6" />
-            <stop offset="100%" stopColor="#3B82F6" />
-          </linearGradient>
-        </defs>
-      </svg>
-      
-      <div className="absolute flex flex-col items-center justify-center">
-        <motion.div
-          className="text-3xl font-bold text-white"
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.5 }}
-        >
-          {Math.round(progress)}%
-        </motion.div>
-        <motion.div
-          className="text-xs text-n-3"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.7 }}
-        >
-          Completion
-        </motion.div>
-      </div>
-    </div>
-  )
-}
-
 const Achievements = () => {
-  const { achievements, progress } = usePortfolio()
+  const { achievements } = usePortfolio()
   
   return (
     <Section id="achievements" crosses>
@@ -197,26 +136,16 @@ const Achievements = () => {
             </p>
           </ScrollReveal>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16">
-            <div className="md:col-span-1 flex items-center justify-center">
-              <ScrollReveal>
-                <ProgressCircle progress={progress} />
-              </ScrollReveal>
-            </div>
-            
-            <div className="md:col-span-2">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {achievements.map((achievement, index) => (
-                  <AchievementCard
-                    key={achievement.id}
-                    title={achievement.title}
-                    description={achievement.description}
-                    unlocked={achievement.unlocked}
-                    index={index}
-                  />
-                ))}
-              </div>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+            {achievements.map((achievement, index) => (
+              <AchievementCard
+                key={achievement.id}
+                title={achievement.title}
+                description={achievement.description}
+                unlocked={achievement.unlocked}
+                index={index}
+              />
+            ))}
           </div>
         </div>
       </div>

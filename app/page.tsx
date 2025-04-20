@@ -20,7 +20,7 @@ export default function Home() {
     <main>
       <div className={cn("overflow-hidden pt-[4.75rem] lg:pt-[5.25rem]")}>
         {/* Interactive UI Elements */}
-        <ScrollProgress position="top" />
+        <ScrollProgress position="left" thickness={6} />
         <AchievementNotification />
         <EasterEgg />
         

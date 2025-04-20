@@ -22,11 +22,8 @@ export const PortfolioProvider = ({ children }: { children: ReactNode }) => {
   const [interactionsCount, setInteractionsCount] = useState(0)
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 })
   const [achievements, setAchievements] = useState([
-    { id: "codefest", title: "Codefest Champion", description: "3-Time Champion in Codefest at STI College Surigao", unlocked: true },
+    { id: "codefest", title: "Codefest Champion", description: "4-Times Champion in Codefest at STI College Surigao", unlocked: true },
     { id: "edp_specialist", title: "EDP Specialist", description: "Achieved 95.57% rating in DICT Electronic Data Processing Specialist Eligibility Examination", unlocked: true },
-    { id: "visit_all", title: "Explorer", description: "Visit all sections of this portfolio", unlocked: false },
-    { id: "interact_10", title: "Curious Mind", description: "Interact 10+ times with the portfolio", unlocked: false },
-    { id: "easter_egg", title: "Detective", description: "Find the hidden easter egg", unlocked: false },
   ])
 
   // Memoize functions to prevent recreation on every render
@@ -95,34 +92,7 @@ export const PortfolioProvider = ({ children }: { children: ReactNode }) => {
       window.removeEventListener("scroll", handleScroll)
       if (throttleTimeout) clearTimeout(throttleTimeout)
     }
-  }, [achievements, unlockAchievement])
-
-  // Check for "visit_all" achievement
-  useEffect(() => {
-    const visitAllAchievement = achievements.find(a => a.id === "visit_all")
-    if (visitAllAchievement && !visitAllAchievement.unlocked) {
-      const requiredSections = ["hero", "about", "education", "skills", "projects", "experience", "contact"]
-      if (requiredSections.every(section => sectionsVisited.includes(section))) {
-        unlockAchievement("visit_all")
-      }
-    }
-  }, [sectionsVisited, achievements, unlockAchievement])
-
-  // Check for "interact_10" achievement
-  useEffect(() => {
-    const interactAchievement = achievements.find(a => a.id === "interact_10")
-    if (interactAchievement && !interactAchievement.unlocked && interactionsCount >= 10) {
-      unlockAchievement("interact_10")
-    }
-  }, [interactionsCount, achievements, unlockAchievement])
-
-  // Check for "easter_egg" achievement
-  useEffect(() => {
-    const easterEggAchievement = achievements.find(a => a.id === "easter_egg")
-    if (easterEggAchievement && !easterEggAchievement.unlocked && sectionsVisited.includes("easter_egg")) {
-      unlockAchievement("easter_egg")
-    }
-  }, [sectionsVisited, achievements, unlockAchievement])
+  }, [])
 
   return (
     <PortfolioContext.Provider

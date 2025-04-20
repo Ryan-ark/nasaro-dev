@@ -20,7 +20,7 @@ const certificatesData = [
     title: "Codefest Champion",
     issuer: "STI College Surigao",
     date: "2023",
-    description: "3-Time Champion in Codefest, showcasing exceptional programming and problem-solving skills.",
+    description: "4-Times Champion in Codefest, showcasing exceptional programming and problem-solving skills.",
     status: "In Development",
     logoUrl: "/assets/certificates/award.svg"
   },

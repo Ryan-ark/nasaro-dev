@@ -52,8 +52,8 @@ const About = () => {
 
   return (
     <Section id="about" crosses>
-      <div className="container">
-        <div className="relative z-1">
+      <div className="container flex flex-col items-center justify-center">
+        <div className="relative z-1 w-full flex flex-col items-center">
           <ScrollReveal>
             <h2 className="h2 mb-6 text-center">About Me</h2>
           </ScrollReveal>
