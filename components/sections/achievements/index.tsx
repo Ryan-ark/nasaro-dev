@@ -124,8 +124,8 @@ const Achievements = () => {
   
   return (
     <Section id="achievements" crosses>
-      <div className="container">
-        <div className="relative z-1">
+      <div className="container flex flex-col items-center justify-center">
+        <div className="relative z-1 w-full flex flex-col items-center">
           <ScrollReveal>
             <h2 className="h2 mb-6 text-center">Achievements</h2>
           </ScrollReveal>
@@ -136,7 +136,7 @@ const Achievements = () => {
             </p>
           </ScrollReveal>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16 max-w-4xl mx-auto">
             {achievements.map((achievement, index) => (
               <AchievementCard
                 key={achievement.id}
